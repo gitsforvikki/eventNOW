@@ -1,0 +1,12 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar a{
+  font-weight: bold;
+}
