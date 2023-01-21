@@ -2,6 +2,9 @@ const express = require('express');
 const dotEnv = require('dotenv');
 const cors  = require('cors');
 const { default: mongoose } = require('mongoose');
+const path = require('path');
+
+
 
 let app = express();
 
@@ -29,9 +32,16 @@ app.use('/api/users' , require('./router/userRouter'));
 app.use('/api/events' , require('./router/eventsRouter'));
 
 //dummy response from server
-app.get('/' , (request , response)=>{
-    response.send('Welcome to react events booking App.');
-})
+// app.get('/' , (request , response)=>{
+//     response.send('Welcome to react events booking App.');
+// })
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname , 'client' , 'build')));
+     app.get('/', (request,response) => {
+         response.sendFile(path.join(__dirname , 'client' , 'build' , 'index.html'));
+     });
+ }
 
 app.listen(port ,  ()=>{
     console.log(`Event-now  server started at port:${port}`);

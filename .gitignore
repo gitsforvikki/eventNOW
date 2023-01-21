@@ -1,0 +1,6 @@
+#dependency
+
+/client/node_modules
+
+#environment variable
+.env
