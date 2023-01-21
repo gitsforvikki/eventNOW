@@ -1,5 +1,5 @@
 #dependency
-
+/node_modules
 /client/node_modules
 
 #environment variable
